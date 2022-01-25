@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@100;300;400;700&display=swap");
+.header {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+}
+
+#userInput {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+#recipe-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin-top: 100px;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  height: 364px;
+  width: 380px;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+  margin-top: 20px;
+  padding: 15px;
+}
+.recipe-photo {
+  min-height: 178px;
+  background-color: #C7BEBE;
+  margin: -15px -15px 15px -15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.name {
+  max-width: 200px;
+  font-size: 18px;
+}
+
+.time {
+  margin-left: 5px;
+  font-size: 18px;
+}
+
+.recipe-details {
+  display: flex;
+  margin-top: 20px;
+}
+
+.ingredients {
+  width: 171px;
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  margin-left: -25px;
+}
+
+.recipe-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  margin-left: 30px;
+  width: 171px;
+  height: 109px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*# sourceMappingURL=style.css.map */

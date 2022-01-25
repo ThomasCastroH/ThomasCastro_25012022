@@ -19,6 +19,7 @@ li {
     background-color: $color-secondary;
     margin-top: 20px;
     padding: 15px;
+    
     &-photo {
         min-height: 178px;
         background-color: $color-primary;
@@ -30,37 +31,33 @@ li {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
+
+        .name {
+            font-size: $recipe-header-text;
+        }
+
+        .time {
+            font-size: $recipe-header-text;
+        }
     }
-}
+    &-details {
+        display: flex;
+        margin-top: 20px;   
 
-.name {
-    max-width: 200px;
-    font-size: $recipe-header-text;
-}
-
-.time {
-    margin-left: 5px;
-    font-size: $recipe-header-text;
-}
-
-.recipe-details {
-    display: flex;
-    margin-top: 20px;
-}
-
-.ingredients {
-    width: 171px;
-    font-family: $lato;
-    font-size: $recipe-description-text;
-    margin-left: -25px;
-}
-
-.recipe-description {
-    font-family: $roboto;
-    font-size: $recipe-description-text;
-    margin-left: 30px;
-    width: 171px;
-    height: 109px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+        .ingredients{
+            width: 171px;
+            font-family: $lato;
+            font-size: $recipe-description-text;
+            margin-left: -25px;
+        }
+    }
+    &-description {
+        font-family: $roboto;
+        font-size: $recipe-description-text;
+        margin-left: 30px;
+        width: 171px;
+        height: 109px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

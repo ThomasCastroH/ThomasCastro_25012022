@@ -47,29 +47,22 @@ li {
   justify-content: space-between;
   flex-direction: row;
 }
-
-.name {
-  max-width: 200px;
+.recipe-header .name {
   font-size: 18px;
 }
-
-.time {
-  margin-left: 5px;
+.recipe-header .time {
   font-size: 18px;
 }
-
 .recipe-details {
   display: flex;
   margin-top: 20px;
 }
-
-.ingredients {
+.recipe-details .ingredients {
   width: 171px;
   font-family: "Lato", sans-serif;
   font-size: 12px;
   margin-left: -25px;
 }
-
 .recipe-description {
   font-family: "Roboto", sans-serif;
   font-size: 12px;

@@ -1,0 +1,43 @@
+.tags {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    align-items    : stretch;
+    justify-content: flex-start;
+    margin-top     : 10px;
+    .tag {
+        display      : flex;
+        align-items  : center;
+        width        : auto;
+        height       : 40px;
+        font-family  : "Lato-Regular", Arial, Verdana, sans-serif;
+        font-size    : 0.7rem;
+        border       : none;
+        color        : white;
+        border-radius: 5px;
+        margin       : 0 0 5px 0;
+    }
+    .label {
+        width: 100%;
+        margin-right: auto;
+    }
+ }
+
+.inner-tag {
+    margin        : 0 5px 5px 0;
+    padding-left  : 10px;
+    text-transform: capitalize;
+    border-radius : 5px;
+}
+
+#ingredient-tag .inner-tag {
+    background-color: #3282F7;
+  }
+  
+#device-tag .inner-tag {
+    background-color: #68D9A4;
+}
+  
+#tool-tag .inner-tag {
+    background-color: #ED6454;
+}

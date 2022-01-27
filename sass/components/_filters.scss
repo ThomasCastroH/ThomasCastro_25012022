@@ -1,0 +1,59 @@
+#ingredient-filter {
+    background-color: #3282F7;
+    padding-left    : 15px;
+}
+
+#device-filter {
+    background-color: #68D9A4;
+    padding-left    : 26px;
+}
+
+#tool-filter {
+    background-color: #ED6454;
+    padding-left    : 19px;
+}
+
+.filters {
+    display       : flex;
+}
+
+.filter {
+    display        : flex;
+    flex-direction : column;
+    align-items    : flex-start;
+    justify-content: flex-start;
+    margin: 5px 25px 5px 0;
+    border-radius  : 5px 5px 5px 5px;
+    @include filter-size;
+
+    &-input {
+        width          : 100%;
+        height         : 69px;
+        display        : flex;
+        align-items    : stretch;
+        justify-content: flex-start;
+    }
+
+    &-text {
+        width           : 100%;
+        padding-left    : 20px;
+        background-color: transparent;
+        outline         : transparent;
+        border          : transparent;
+        color           : white;
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    &-button {
+        width           : 40px;
+        background-color: transparent;
+        border          : transparent;
+        color           : white;
+
+        &.fa-chevron-up {
+            display: none;
+        }
+    }
+}

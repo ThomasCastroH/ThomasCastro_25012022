@@ -107,12 +107,12 @@
   padding-left: 15px;
 }
 
-#device-filter {
+#appliance-filter {
   background-color: #68D9A4;
   padding-left: 26px;
 }
 
-#tool-filter {
+#ustensils-filter {
   background-color: #ED6454;
   padding-left: 19px;
 }
@@ -122,6 +122,7 @@
 }
 
 .filter {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -157,6 +158,45 @@
 }
 .filter-button.fa-chevron-up {
   display: none;
+}
+.filter--open {
+  width: 667px;
+}
+
+.suggestions {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  display: none;
+  width: 667px;
+  height: 397;
+  margin-top: 1em;
+  border-radius: 5px;
+  padding: 1.5rem;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: start;
+  flex-direction: row;
+}
+.suggestions li {
+  list-style: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+}
+
+#sugg-ingr {
+  background-color: #3282F7;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#sugg-app {
+  background-color: #68D9A4;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#sugg-ust {
+  background-color: #ED6454;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .header {

@@ -31,34 +31,34 @@
 
         <div class="tags">
             <div class="tag" id="ingredient-tag"></div>
-            <div class="tag" id="device-tag"></div>
-            <div class="tag" id="tool-tag"></div>
+            <div class="tag" id="appliance-tag"></div>
+            <div class="tag" id="ustensils-tag"></div>
         </div>
 
         <div class="filters">
             <div class="filter" id="ingredient-filter">
                 <div class="filter-input">
-                    <input class="filter-text" type="text" id="userIngr" placeholder="Ingrédients">
-                    <button class="filter-button fas fa-chevron-down"></button>
-                    <button class="filter-button fas fa-chevron-up"></button>
+                    <input class="filter-text" type="text" id="user-ingredient" placeholder="Ingrédients">
+                    <button class="filter-button fas fa-chevron-down" id="open-ingr"></button>
+                    <button class="filter-button fas fa-chevron-up" id="close-ingr"></button>
                 </div>
-                <div class="suggestions" id="suggIngr"></div>
+                <div class="suggestions" id="sugg-ingr"></div>
             </div>
-            <div class="filter" id="device-filter">
+            <div class="filter" id="appliance-filter">
                 <div class="filter-input">
-                    <input class="filter-text" type="text" id="userApp" placeholder="Appareils">
-                    <button class="filter-button fas fa-chevron-down"></button>
-                    <button class="filter-button fas fa-chevron-up"></button>
+                    <input class="filter-text" type="text" id="user-appliance" placeholder="Appareils">
+                    <button class="filter-button fas fa-chevron-down" id="open-app"></button>
+                    <button class="filter-button fas fa-chevron-up" id="close-app"></button>
                   </div>
-                  <div class="suggestions" id="suggApp"></div>
+                  <div class="suggestions" id="sugg-app"></div>
             </div>
-            <div class="filter" id="tool-filter">
+            <div class="filter" id="ustensils-filter">
                 <div class="filter-input">
-                    <input class="filter-text" type="text" id="userUst" placeholder="Ustensiles">
-                    <button class="filter-button fas fa-chevron-down"></button>
-                    <button class="filter-button fas fa-chevron-up"></button>
+                    <input class="filter-text" type="text" id="user-ustensils" placeholder="Ustensiles">
+                    <button class="filter-button fas fa-chevron-down" id="open-ust"></button>
+                    <button class="filter-button fas fa-chevron-up" id="close-ust"></button>
                   </div>
-                  <div class="suggestions" id="suggUst"></div>
+                  <div class="suggestions" id="sugg-ust"></div>
             </div>
         </div>
         
@@ -70,6 +70,7 @@
 
     <script src="./scripts/recipes.js"></script>
     <script src="./scripts/displayRecipes.js"></script>
+    <script src="./scripts/displayTagList.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

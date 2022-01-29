@@ -30,13 +30,6 @@ function renameUnit(longUnit) {
     }   
 }
 
-// -----------------------------------------------------
-// DISPLAY ALL THE RECIPES BY DEFAULT
-// -----------------------------------------------------
-/** 
- * @param recipeTab: Tab containing recipes to be displayed
- */
-
 function showRecipes(recipeTab) {
 
     let recipeList = document.getElementById("recipe-list"); /*Nota bene: div "recipeList" has been created in html file*/

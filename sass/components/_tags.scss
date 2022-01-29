@@ -11,7 +11,7 @@
         width        : auto;
         height       : 40px;
         font-family  : "Lato-Regular", Arial, Verdana, sans-serif;
-        font-size    : 0.7rem;
+        font-size    : $recipe-description-text;
         border       : none;
         color        : white;
         border-radius: 5px;
@@ -31,13 +31,36 @@
 }
 
 #ingredient-tag .inner-tag {
-    background-color: #3282F7;
+    background-color: $color-primary-filter;
   }
   
 #device-tag .inner-tag {
-    background-color: #68D9A4;
+    background-color: $color-secondary-filter;
 }
   
 #tool-tag .inner-tag {
-    background-color: #ED6454;
+    background-color: $color-tertiary-filter;
+}
+
+.close-tag {
+    padding-left: 2px;
+}
+  
+.tag-box {
+    margin: 5px;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.tag-ingredient {
+    background: $color-primary-filter;
+}
+  
+.tag-appliances {
+    background: $color-secondary-filter;
+}
+  
+.tag-ustensils {
+    background: $color-tertiary-filter;
 }

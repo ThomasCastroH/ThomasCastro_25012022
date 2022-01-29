@@ -57,7 +57,7 @@ const ingredientsTags = elementsTag(recipes, "ingredients");
 ingredientsTags.forEach((element) => {
   ingredientsTags.splice(30);
   let ingredientsBoxList = document.querySelector("#sugg-ingr");
-  ingredientsBoxList.style.display = "block";
+  ingredientsBoxList.style.display = "none";
   const searchlistIngredients = document.querySelector("#sugg-ingr");
   const domIngredients = listTag(element, "ingredients");
   searchlistIngredients.append(domIngredients);
@@ -67,7 +67,7 @@ ingredientsTags.forEach((element) => {
 const applianceTags = elementsTag(recipes, "appliance");
 applianceTags.forEach((element) => {
   let ingredientsBoxList = document.querySelector("#sugg-app");
-  ingredientsBoxList.style.display = "block";
+  ingredientsBoxList.style.display = "none";
   const searchlistIngredients = document.querySelector("#sugg-app");
   const domAppliances = listTag(element, "appliance");
   searchlistIngredients.append(domAppliances);
@@ -77,7 +77,7 @@ applianceTags.forEach((element) => {
 const ustensilsTags = elementsTag(recipes, "ustensils");
 ustensilsTags.forEach((element) => {
   let ingredientsBoxList = document.querySelector("#sugg-ust");
-  ingredientsBoxList.style.display = "block";
+  ingredientsBoxList.style.display = "none";
   const searchlistIngredients = document.querySelector("#sugg-ust");
   const domAppliances = listTag(element, "ustensils");
   searchlistIngredients.append(domAppliances);

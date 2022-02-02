@@ -1,1 +1,1 @@
-// Recherche boucles natives
+// Recherche fonctionnelle

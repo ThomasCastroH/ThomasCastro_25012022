@@ -1,15 +1,13 @@
 import recipeFactory from "./displayRecipes.js";
 
 function displayRecipes() {
-    const recipiesContainer = document.getElementById("recipe-list");
-    recipiesContainer.innerHTML = "";
-  
-    let recipeCardTemplate = "";
+    const recipesContainer = document.getElementById("recipe-list");
+
     for (const recipe of recipes) {
-      const recipeModel = new recipeFactory(recipe, recipeCardTemplate);
-      recipeCardTemplate = recipeModel.createCardRecipe();
+      const recipeCard = new recipeFactory(recipe);
+      const recipeDOM = recipeCard.getCardDOM();
+      recipesContainer.appendChild(recipeDOM);    
     }
-    recipiesContainer.innerHTML = recipeCardTemplate;
 }
 
 function init() {

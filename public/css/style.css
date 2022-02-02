@@ -259,10 +259,6 @@ li {
   background-color: #E7E7E7;
   padding: 15px;
 }
-.recipe-info {
-  position: relative;
-  top: 100%;
-}
 .recipe-photo {
   height: 178px;
   background-color: #C7BEBE;

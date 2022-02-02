@@ -19,7 +19,7 @@
 
         <div class="search">
             <form class="search-form" id="search-form" autocomplete="off">
-                <input class="search-input" type="text" id=""
+                <input class="search-input" type="text" id="search-bar"
                 placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette">
                 <button class="search-button fas fa-search" id="search-icon"></button>
             </form>
@@ -38,7 +38,7 @@
         <div class="filters">
             <div class="filter" id="ingredient-filter">
                 <div class="filter-input">
-                    <input class="filter-text" type="text" id="user-ingredient" placeholder="Ingrédients">
+                    <input class="filter-text" type="text" id="user-ingr" placeholder="Ingrédients">
                     <button class="filter-button fas fa-chevron-down" id="open-ingr"></button>
                     <button class="filter-button fas fa-chevron-up" id="close-ingr"></button>
                 </div>
@@ -46,7 +46,7 @@
             </div>
             <div class="filter" id="appliance-filter">
                 <div class="filter-input">
-                    <input class="filter-text" type="text" id="user-appliance" placeholder="Appareils">
+                    <input class="filter-text" type="text" id="user-app" placeholder="Appareils">
                     <button class="filter-button fas fa-chevron-down" id="open-app"></button>
                     <button class="filter-button fas fa-chevron-up" id="close-app"></button>
                   </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="filter" id="ustensils-filter">
                 <div class="filter-input">
-                    <input class="filter-text" type="text" id="user-ustensils" placeholder="Ustensiles">
+                    <input class="filter-text" type="text" id="user-ust" placeholder="Ustensiles">
                     <button class="filter-button fas fa-chevron-down" id="open-ust"></button>
                     <button class="filter-button fas fa-chevron-up" id="close-ust"></button>
                   </div>
@@ -69,7 +69,7 @@
 
 
     <script src="./scripts/recipes.js"></script>
-    <script src="./scripts/displayRecipes.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
     <script src="./scripts/displayFilterList.js"></script>
     <script src="./scripts/displayTag.js"></script>
 

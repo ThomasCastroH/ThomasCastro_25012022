@@ -259,8 +259,12 @@ li {
   background-color: #E7E7E7;
   padding: 15px;
 }
+.recipe-info {
+  position: relative;
+  top: 100%;
+}
 .recipe-photo {
-  min-height: 178px;
+  height: 178px;
   background-color: #C7BEBE;
   margin: -15px -15px 15px -15px;
   border-top-left-radius: 5px;
@@ -270,6 +274,8 @@ li {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .recipe-header .name {
   font-size: 18px;
@@ -285,12 +291,12 @@ li {
   width: 171px;
   font-family: "Lato", sans-serif;
   font-size: 12px;
-  margin-left: -25px;
+  margin-left: 15px;
 }
 .recipe-description {
   font-family: "Roboto", sans-serif;
   font-size: 12px;
-  margin-left: 30px;
+  margin-left: 15px;
   width: 171px;
   height: 109px;
   overflow: hidden;

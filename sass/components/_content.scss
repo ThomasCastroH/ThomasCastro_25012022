@@ -21,7 +21,7 @@ li {
     padding: 15px;
 
     &-photo {
-        height: 178px;
+        min-height: 178px;
         background-color: $color-primary;
         margin: -15px -15px 15px -15px;
         border-top-left-radius: 5px;
@@ -33,14 +33,12 @@ li {
         flex-direction: row;
         margin-left: 15px;
         margin-right: 15px;
-
-        .name {
-            font-size: $recipe-header-text;
-        }
-
-        .time {
-            font-size: $recipe-header-text;
-        }
+    }
+    &-name{
+        font-size: $recipe-header-text;
+    }
+    &-time{
+        font-size: $recipe-header-text;
     }
     &-details {
         display: flex;
@@ -52,6 +50,10 @@ li {
             font-size: $recipe-description-text;
             margin-left: 15px;
         }
+    }
+    &-ingredient{
+        display: flex;
+        flex-direction: column;
     }
     &-description {
         font-family: $roboto;

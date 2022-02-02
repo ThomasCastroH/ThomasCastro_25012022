@@ -42,23 +42,7 @@
   padding-right: 10px;
 }
 
-.no-result {
-  background-color: #E7E7E7;
-  color: black;
-  margin-top: 10px;
-  padding: 20px 10px 20px 10px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  height: auto;
-  border-radius: 5px 5px 5px 5px;
-  font-family: "Lato", sans-serif;
-  display: none;
-}
-
-.tags {
+.tagContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -66,7 +50,7 @@
   justify-content: flex-start;
   margin-top: 10px;
 }
-.tags .tag {
+.tagContainer .tag {
   display: flex;
   align-items: center;
   width: auto;
@@ -78,51 +62,39 @@
   border-radius: 5px;
   margin: 0 0 5px 0;
 }
-.tags .label {
+.tagContainer .label {
   width: 100%;
   margin-right: auto;
 }
 
-.inner-tag {
-  margin: 0 5px 5px 0;
-  padding-left: 10px;
-  text-transform: capitalize;
-  border-radius: 5px;
-}
-
-#ingredient-tag .inner-tag {
-  background-color: #3282F7;
-}
-
-#device-tag .inner-tag {
-  background-color: #68D9A4;
-}
-
-#tool-tag .inner-tag {
-  background-color: #ED6454;
-}
-
-.close-tag {
-  padding-left: 2px;
+.close-btn {
+  margin-left: 5px;
+  font-size: 18px;
+  align-self: center;
 }
 
 .tag-box {
+  display: flex;
+  justify-content: space-between;
   margin: 5px;
   padding: 7px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.tag-ingredient {
+.tag-ingredients {
   background: #3282F7;
+  color: white;
 }
 
-.tag-appliances {
+.tag-appliance {
   background: #68D9A4;
+  color: white;
 }
 
 .tag-ustensils {
   background: #ED6454;
+  color: white;
 }
 
 #ingredient-filter {
@@ -260,7 +232,7 @@ li {
   padding: 15px;
 }
 .recipe-photo {
-  height: 178px;
+  min-height: 178px;
   background-color: #C7BEBE;
   margin: -15px -15px 15px -15px;
   border-top-left-radius: 5px;
@@ -273,10 +245,10 @@ li {
   margin-left: 15px;
   margin-right: 15px;
 }
-.recipe-header .name {
+.recipe-name {
   font-size: 18px;
 }
-.recipe-header .time {
+.recipe-time {
   font-size: 18px;
 }
 .recipe-details {
@@ -288,6 +260,10 @@ li {
   font-family: "Lato", sans-serif;
   font-size: 12px;
   margin-left: 15px;
+}
+.recipe-ingredient {
+  display: flex;
+  flex-direction: column;
 }
 .recipe-description {
   font-family: "Roboto", sans-serif;

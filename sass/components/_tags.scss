@@ -1,4 +1,4 @@
-.tags {
+.tagContainer {
     display        : flex;
     flex-direction : row;
     flex-wrap      : wrap;
@@ -23,44 +23,32 @@
     }
  }
 
-.inner-tag {
-    margin        : 0 5px 5px 0;
-    padding-left  : 10px;
-    text-transform: capitalize;
-    border-radius : 5px;
+.close-btn {
+    margin-left: 5px;
+    font-size: $recipe-header-text;
+    align-self: center;
 }
 
-#ingredient-tag .inner-tag {
-    background-color: $color-primary-filter;
-  }
-  
-#device-tag .inner-tag {
-    background-color: $color-secondary-filter;
-}
-  
-#tool-tag .inner-tag {
-    background-color: $color-tertiary-filter;
-}
-
-.close-tag {
-    padding-left: 2px;
-}
-  
 .tag-box {
+    display: flex;
+    justify-content: space-between;
     margin: 5px;
     padding: 7px;
     border-radius: 5px;
     cursor: pointer;
 }
   
-.tag-ingredient {
+.tag-ingredients {
     background: $color-primary-filter;
+    color: white;
 }
   
-.tag-appliances {
+.tag-appliance {
     background: $color-secondary-filter;
+    color: white;
 }
   
 .tag-ustensils {
     background: $color-tertiary-filter;
+    color: white;
 }

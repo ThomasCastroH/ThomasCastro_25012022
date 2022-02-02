@@ -1,71 +1,38 @@
-function createBoxTags() {
-    // ingredients
-    const listItemIngredients = document.querySelectorAll(
-      ".search-item-ingredients"
-    );
-  
-    let listTagIngredients = [];
-    let tagIng = document.querySelector("#ingredient-tag");
-  
-    for (let i = 0; i < listItemIngredients.length; i++) {
-      listItemIngredients[i].addEventListener("click", () => {
-        listTagIngredients.push(listItemIngredients[i]);
-        tagIng.style.display = "block";
-        const tagBox = displayTag(listItemIngredients[i].innerHTML);
-        tagBox.classList.add("tag-ingredient");
-        tagIng.appendChild(tagBox);
-        removeTag();
-      });
-    }
-  
-    //  Appliances
-    const listItemAppliances = document.querySelectorAll(
-      ".search-item-appliance"
-    );
-  
-    let listTagAppliances = [];
-    let tagApp = document.querySelector("#appliance-tag");
-  
-    for (let i = 0; i < listItemAppliances.length; i++) {
-      listItemAppliances[i].addEventListener("click", () => {
-        listTagAppliances.push(listItemAppliances[i]);
-        tagApp.style.display = "block";
-        const tagBox = displayTag(listItemAppliances[i].innerHTML);
-        tagBox.classList.add("tag-appliances");
-        tagApp.appendChild(tagBox);
-        removeTag();
-      });
-    }
-  
-    // Ustensils
-  
-    const listItemUstensils = document.querySelectorAll(".search-item-ustensils");
-  
-    let listTagUstensils = [];
-    let tagUst = document.querySelector("#ustensils-tag");
-  
-    for (let i = 0; i < listItemUstensils.length; i++) {
-      listItemUstensils[i].addEventListener("click", () => {
-        listTagUstensils.push(listItemUstensils[i]);
-        tagUst.style.display = "block";
-        const tagBox = displayTag(listItemUstensils[i].innerHTML);
-        tagBox.classList.add("tag-ustensils");
-        tagUst.appendChild(tagBox);
-        removeTag();
-      });
-    }
-}
-  
-function displayTag(value) {
-    const wrapper = document.createElement("span");
-    wrapper.classList.add("tag-box");
+function createBoxTags(category, content) {
+  const tagContainer = document.querySelector(".tagContainer");
 
-    let TagCard = "";
-    TagCard += `<span>${value}</span>
-                <i class="far fa-times-circle fa-lg close-tag"></i>
-                `;
-    wrapper.innerHTML = TagCard;
-    return wrapper;
+  const tagBox = document.createElement("div");
+  tagBox.classList.add("tag-box")
+  tagBox.classList.add(`tag-${category}`);
+  tagBox.textContent = content;
+
+  const closeBtn = document.createElement("span")
+  closeBtn.classList.add('close-btn');
+  closeBtn.innerHTML = `<i class="far fa-times-circle"></i>`;
+
+  tagContainer.appendChild(tagBox);
+  tagBox.appendChild(closeBtn);
+
+  removeTag();
+}
+
+// Permet d'utiliser un seul addEventListener pour tous les tags
+[...document.querySelectorAll(".tags")].forEach(function(item) {
+  item.addEventListener("click", () => {
+    var targetClasses = event.target.classList[0];
+    var targetValue = event.target.textContent;
+    var targetClass = targetClasses.split('-');
+    var category = targetClass[1];
+
+    createBoxTags(category, targetValue);
+  })
+});
+
+function displayTag(value) {
+    const container = document.createElement("span");
+    container.setAttribute("class", "tag-box");
+    container.textContent = value;
+    return container;
 }
   
 function removeTag() {
@@ -77,5 +44,3 @@ function removeTag() {
         });
     }
 }
-
-createBoxTags();

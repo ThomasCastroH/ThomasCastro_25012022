@@ -18,22 +18,21 @@ export default function recipeFactory(recipes) {
       cardInfoHeader.setAttribute('class', 'recipe-header');
 
       const cardHeaderTitle = document.createElement('h2');
-      cardHeaderTitle.setAttribute('class', 'name');
-      cardHeaderTitle.setAttribute('title', 'name');
+      cardHeaderTitle.setAttribute('class', 'recipe-name');
       cardHeaderTitle.textContent = name;
 
       const timeLogo = document.createElement('span');
       timeLogo.innerHTML = '<i class="far fa-clock"></i>';
 
       const cardHeaderTime = document.createElement('span');
-      cardHeaderTime.setAttribute('class', 'time');
-      cardHeaderTime.textContent = time;
+      cardHeaderTime.setAttribute('class', 'recipe-time');
+      cardHeaderTime.textContent = time +"min";
 
       const cardInfoDetails = document.createElement('div');
       cardInfoDetails.setAttribute('class', 'recipe-details');
 
       const cardDetailsIngr = document.createElement('div');
-      cardDetailsIngr.setAttribute('class', 'ingredient');
+      cardDetailsIngr.setAttribute('class', 'recipe-ingredient');
       
       const cardDetailsDesc = document.createElement('div');
       cardDetailsDesc.setAttribute('class', 'recipe-description');
@@ -54,7 +53,16 @@ export default function recipeFactory(recipes) {
 
       for (const ingredient of ingredients) {
         const span = document.createElement('span');
-        span.textContent = ingredient;
+        span.setAttribute('class', 'ingredients');
+
+        if (ingredient.unit) {
+          span.textContent = ingredient.ingredient + ": " + ingredient.quantity + " " + ingredient.unit;
+        } else if (ingredient.quantity) {
+          span.textContent = ingredient.ingredient + ": " + ingredient.quantity;
+        } else {
+          span.textContent = ingredient.ingredient;
+        }
+
         cardDetailsIngr.appendChild(span);
       }
   

@@ -1,62 +1,55 @@
-function elementsTag(recipes, elementTag) {
+function filterList(recipes, category) {
   let list = [];
-  let listreduced = [];
+  let uniqueList;
   
-  switch (elementTag) {
+  switch (category) {
     case "ingredients":
       recipes.forEach((recipe) => {
-        if (recipe.ingredients.length) {
+        if (recipe.ingredients) {
           const ingredientsMap = recipe.ingredients.map((ingr) =>
             ingr.ingredient.toLowerCase()
           );
           list.push(...ingredientsMap);
         }
       });
-      listreduced = [...new Set(list)];
-
-      return listreduced;
+      uniqueList = list.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
+      return uniqueList;
 
     case "appliance":
       recipes.forEach((recipe) => {
-        if (recipe.appliance.length) {
-          const appliancesMap = recipe.appliance.toLowerCase();
-
+        if (recipe.appliance) {
+          const appliancesMap = recipe.appliance;
           list.push(appliancesMap);
         }
       });
-      listreduced = [...new Set(list)];
-
-      return listreduced;
+      uniqueList = list.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
+      return uniqueList;
 
     case "ustensils":
       recipes.forEach((recipe) => {
-        if (recipe.ustensils.length) {
+        if (recipe.ustensils) {
           const ustensilsMap = recipe.ustensils.map((ustensil) =>
-            ustensil.toLowerCase()
+            ustensil
           );
-
           list.push(...ustensilsMap);
         }
       });
-      listreduced = [...new Set(list)];
-      return listreduced;
-  }
+      uniqueList = list.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
+      return uniqueList;  }
 }
 
-// // display element in the box
-function listTag(item, element) {
-  const wrapper = document.createElement("li");
-  wrapper.classList.add(`search-item-${element}`);
-  wrapper.innerText = item.charAt(0).toUpperCase() + item.slice(1);
+// affiche les elements dans le conteneur
+function listTag(item, category) {
+  const container = document.createElement("li");
+  container.setAttribute('class', `tag-${category} tags`);
+  container.innerText = item[0].toUpperCase(0) + item.substring(1);
 
-  return wrapper;
+  return container;
 }
 
-// add element ingredient in his box
-const ingredientsTags = elementsTag(recipes, "ingredients");
-
+// ajoute les element dans leurs conteneurs
+const ingredientsTags = filterList(recipes, "ingredients");
 ingredientsTags.forEach((element) => {
-  ingredientsTags.splice(30);
   let ingredientsBoxList = document.querySelector("#sugg-ingr");
   ingredientsBoxList.style.display = "none";
   const searchlistIngredients = document.querySelector("#sugg-ingr");
@@ -64,8 +57,7 @@ ingredientsTags.forEach((element) => {
   searchlistIngredients.append(domIngredients);
 });
 
-// add element appliance in his box
-const applianceTags = elementsTag(recipes, "appliance");
+const applianceTags = filterList(recipes, "appliance");
 applianceTags.forEach((element) => {
   let ingredientsBoxList = document.querySelector("#sugg-app");
   ingredientsBoxList.style.display = "none";
@@ -74,8 +66,7 @@ applianceTags.forEach((element) => {
   searchlistIngredients.append(domAppliances);
 });
 
-// add element ustensils in his box
-const ustensilsTags = elementsTag(recipes, "ustensils");
+const ustensilsTags = filterList(recipes, "ustensils");
 ustensilsTags.forEach((element) => {
   let ingredientsBoxList = document.querySelector("#sugg-ust");
   ingredientsBoxList.style.display = "none";
@@ -84,7 +75,7 @@ ustensilsTags.forEach((element) => {
   searchlistIngredients.append(domAppliances);
 });
 
-// fonction filtre des tags ingredients
+// fonction filtre des tags
 function filterTags(string) {
   let target = string;
   let input = document.getElementById(target);
@@ -93,7 +84,7 @@ function filterTags(string) {
     case "user-ingr":
       var filter = input.value.toUpperCase();
       var div = document.getElementById("sugg-ingr");
-      var elem = div.getElementsByClassName("search-item-ingredients");
+      var elem = div.getElementsByClassName("tag-ingredients");
     
       for (i =0; i < elem.length; i++) {
         txtValue = elem[i].textContent || elem[i].innerText;
@@ -106,7 +97,7 @@ function filterTags(string) {
     case "user-app":
       var filter = input.value.toUpperCase();
       var div = document.getElementById("sugg-app");
-      var elem = div.getElementsByClassName("search-item-appliance");
+      var elem = div.getElementsByClassName("tag-appliance");
     
       for (i =0; i < elem.length; i++) {
         txtValue = elem[i].textContent || elem[i].innerText;
@@ -119,7 +110,7 @@ function filterTags(string) {
     case "user-ust":
       var filter = input.value.toUpperCase();
       var div = document.getElementById("sugg-ust");
-      var elem = div.getElementsByClassName("search-item-ustensils");
+      var elem = div.getElementsByClassName("tag-ustensils");
     
       for (i =0; i < elem.length; i++) {
         txtValue = elem[i].textContent || elem[i].innerText;
@@ -132,7 +123,7 @@ function filterTags(string) {
   }
 }
 
-// fonction affichage des tags dans les filtres
+// fonction affichage des filtres
 function showTagList(string) {
   let target = string;
 
@@ -191,7 +182,7 @@ function showTagList(string) {
   })
 });
 
-// list + search display on click
+// Affichage en cliquant
 // ingredients
 document.querySelector("#open-ingr").addEventListener("click", () => {
     document.querySelector("#close-ingr").style.display = "block";

@@ -21,7 +21,11 @@
         width: 100%;
         margin-right: auto;
     }
- }
+}
+
+.tags:hover {
+    text-decoration: underline;
+}
 
 .close-btn {
     margin-left: 5px;

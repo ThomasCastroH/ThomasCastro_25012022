@@ -1,7 +1,11 @@
 import recipeFactory from "./displayRecipes.js";
 import createBoxTags from "./displayTag.js";
+import filterRecipes from "./research.js";
 
-function displayRecipes() {
+function displayRecipes(array) {
+    let recipes = array;
+    console.log('array dans display:');
+    console.log(recipes);
     const recipesContainer = document.getElementById("recipe-list");
 
     for (const recipe of recipes) {
@@ -12,6 +16,8 @@ function displayRecipes() {
 }
 
 function init() {
+  displayRecipes(recipes);
+
   // Permet d'utiliser un seul addEventListener pour tous les tags
   [...document.querySelectorAll(".tags")].forEach(function(item) {
     item.addEventListener("click", () => {
@@ -24,7 +30,14 @@ function init() {
     })
   });
 
-  displayRecipes();
+  let input = document.querySelector('#search-bar');
+  input.addEventListener('keyup', () => {
+    let value = document.querySelector('#search-bar').value;
+    let filteredRecipes = filterRecipes(recipes, value);
+    let container = document.querySelector("#recipe-list");
+    container.innerHTML = "";
+    displayRecipes(filteredRecipes);
+  })
 }
 
 init();

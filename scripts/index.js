@@ -4,8 +4,6 @@ import filterRecipes from "./research.js";
 
 function displayRecipes(array) {
     let recipes = array;
-    console.log('array dans display:');
-    console.log(recipes);
     const recipesContainer = document.getElementById("recipe-list");
 
     for (const recipe of recipes) {

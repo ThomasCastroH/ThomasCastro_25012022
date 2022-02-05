@@ -1,79 +1,61 @@
-function filterList(recipes, category) {
-  let list = [];
-  let uniqueList;
-  
-  switch (category) {
-    case "ingredients":
-      recipes.forEach((recipe) => {
-        if (recipe.ingredients) {
-          const ingredientsMap = recipe.ingredients.map((ingr) =>
-            ingr.ingredient.toLowerCase()
-          );
-          list.push(...ingredientsMap);
-        }
-      });
-      uniqueList = list.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
-      return uniqueList;
+export { displayFilterList, showTagList, filterTags};
 
-    case "appliance":
-      recipes.forEach((recipe) => {
-        if (recipe.appliance) {
-          const appliancesMap = recipe.appliance;
-          list.push(appliancesMap);
-        }
-      });
-      uniqueList = list.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
-      return uniqueList;
+function displayFilterList (recipes) {
 
-    case "ustensils":
-      recipes.forEach((recipe) => {
-        if (recipe.ustensils) {
-          const ustensilsMap = recipe.ustensils.map((ustensil) =>
-            ustensil
-          );
-          list.push(...ustensilsMap);
-        }
-      });
-      uniqueList = list.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
-      return uniqueList;  }
+  const ingrTagBox = document.querySelector('#sugg-ingr');
+  const appTagBox = document.querySelector('#sugg-app');
+  const ustTagBox = document.querySelector('#sugg-ust');
+
+  let ingrArray = [];
+  let appArray = [];
+  let ustArray = [];
+
+  // construit 3 listes contenant ingredient, appareils, ustensils
+  for (const recipe of recipes) {
+
+    for (const ingredient of recipe.ingredients) {
+      ingrArray.push(ingredient.ingredient);
+    }
+
+    appArray.push(recipe.appliance);
+
+    for ( let i = 0; i < recipe.ustensils.length; i++ ) {
+      ustArray.push(recipe.ustensils[i]);
+    }
+  }
+
+  // retrait des doublons dans les listes
+  let uniqueIngrArray = [... new Set(ingrArray)];
+  let uniqueAppArray = [... new Set(appArray)];
+  let uniqueUstArray = [... new Set(ustArray)];
+
+  uniqueIngrArray.forEach( function(ingr) {
+    const ingrList = document.createElement('li');
+    ingrList.classList.add('tag-ingredients');
+    ingrList.classList.add('tags');
+    ingrList.textContent = ingr;
+
+    ingrTagBox.appendChild(ingrList);
+  })
+
+  uniqueAppArray.forEach( function(app) {
+    const appList = document.createElement('li');
+    appList.classList.add('tag-appliance');
+    appList.classList.add('tags');
+    appList.textContent = app;
+
+    appTagBox.appendChild(appList);
+  })
+
+  uniqueUstArray.forEach( function(ust) {
+    const ustList = document.createElement('li');
+    ustList.classList.add('tag-ustensils');
+    ustList.classList.add('tags');
+    ustList.textContent = ust[0].toUpperCase()+ust.substring(1);
+
+    ustTagBox.appendChild(ustList);
+  })
 }
-
-// affiche les elements dans le conteneur
-function listTag(item, category) {
-  const container = document.createElement("li");
-  container.setAttribute('class', `tag-${category} tags`);
-  container.innerText = item[0].toUpperCase(0) + item.substring(1);
-
-  return container;
-}
-
-// ajoute les element dans leurs conteneurs
-const ingredientsTags = filterList(recipes, "ingredients");
-ingredientsTags.forEach((element) => {
-  let ingredientsBoxList = document.querySelector("#sugg-ingr");
-  ingredientsBoxList.style.display = "none";
-  const searchlistIngredients = document.querySelector("#sugg-ingr");
-  const domIngredients = listTag(element, "ingredients");
-  searchlistIngredients.append(domIngredients);
-});
-
-const applianceTags = filterList(recipes, "appliance");
-applianceTags.forEach((element) => {
-  let ingredientsBoxList = document.querySelector("#sugg-app");
-  ingredientsBoxList.style.display = "none";
-  const searchlistIngredients = document.querySelector("#sugg-app");
-  const domAppliances = listTag(element, "appliance");
-  searchlistIngredients.append(domAppliances);
-});
-
-const ustensilsTags = filterList(recipes, "ustensils");
-ustensilsTags.forEach((element) => {
-  let ingredientsBoxList = document.querySelector("#sugg-ust");
-  ingredientsBoxList.style.display = "none";
-  const searchlistIngredients = document.querySelector("#sugg-ust");
-  const domAppliances = listTag(element, "ustensils");
-  searchlistIngredients.append(domAppliances);
-});
 
 // fonction filtre des tags
 function filterTags(string) {
@@ -86,8 +68,8 @@ function filterTags(string) {
       var div = document.getElementById("sugg-ingr");
       var elem = div.getElementsByClassName("tag-ingredients");
     
-      for (i =0; i < elem.length; i++) {
-        txtValue = elem[i].textContent || elem[i].innerText;
+      for (let i = 0; i < elem.length; i++) {
+        let txtValue = elem[i].textContent || elem[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
           elem[i].style.display = "";
         } else {
@@ -99,8 +81,8 @@ function filterTags(string) {
       var div = document.getElementById("sugg-app");
       var elem = div.getElementsByClassName("tag-appliance");
     
-      for (i =0; i < elem.length; i++) {
-        txtValue = elem[i].textContent || elem[i].innerText;
+      for (let i =0; i < elem.length; i++) {
+        let txtValue = elem[i].textContent || elem[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
           elem[i].style.display = "";
         } else {
@@ -112,8 +94,8 @@ function filterTags(string) {
       var div = document.getElementById("sugg-ust");
       var elem = div.getElementsByClassName("tag-ustensils");
     
-      for (i =0; i < elem.length; i++) {
-        txtValue = elem[i].textContent || elem[i].innerText;
+      for (let i =0; i < elem.length; i++) {
+        let txtValue = elem[i].textContent || elem[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
           elem[i].style.display = "";
         } else {
@@ -172,15 +154,6 @@ function showTagList(string) {
       }
   }
 }
-
-// Permet d'utiliser un seul addEventListener pour les trois
-[...document.querySelectorAll(".filter-text")].forEach(function(item) {
-  item.addEventListener("keyup", () => {
-    var target = event.target.id;
-    filterTags(target);
-    showTagList(target);
-  })
-});
 
 // Affichage en cliquant
 // ingredients

@@ -4,7 +4,7 @@ export default function recipeFactory(recipes) {
     function getCardDOM() {         
 
       const card = document.createElement('div');
-      card.setAttribute('class', 'recipe');
+      card.setAttribute('class', 'recipe is-displayed');
       card.setAttribute('id', id);
 
       const cardPhoto = document.createElement('div');

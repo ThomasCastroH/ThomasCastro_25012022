@@ -280,4 +280,8 @@ li {
   text-overflow: ellipsis;
 }
 
+.is-hidden {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,7 @@
-export default function createBoxTags(category, content) {
+import { filterRecipes, filterRecipeByTags } from "./research.js";
+export {createBoxTags, removeTag};
+
+function createBoxTags(category, content) {
   const tagContainer = document.querySelector(".tagContainer");
 
   const tagBox = document.createElement("div");
@@ -12,16 +15,13 @@ export default function createBoxTags(category, content) {
 
   tagContainer.appendChild(tagBox);
   tagBox.appendChild(closeBtn);
-
-  removeTag();
 }
 
-function removeTag() {
-    const removeTag = document.querySelectorAll(".tag-box");
-        if (removeTag.length) {
-            for (let x = 0; x < removeTag.length; x++)
-                removeTag[x].addEventListener("click", () => {
-                removeTag[x].remove();
-        });
-    }
+function removeTag (array, string) {
+    
+    let filteredTagArray = array.filter( i => {
+        return i !== string
+    })
+
+    return filteredTagArray
 }

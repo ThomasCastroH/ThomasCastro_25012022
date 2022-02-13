@@ -14,13 +14,13 @@ function displayFilterList (recipes) {
   for (const recipe of recipes) {
 
     for (const ingredient of recipe.ingredients) {
-      ingrArray.push(ingredient.ingredient);
+      ingrArray.push(ingredient.ingredient.toLowerCase());
     }
 
-    appArray.push(recipe.appliance);
+    appArray.push(recipe.appliance.toLowerCase());
 
     for ( let i = 0; i < recipe.ustensils.length; i++ ) {
-      ustArray.push(recipe.ustensils[i]);
+      ustArray.push(recipe.ustensils[i].toLowerCase());
     }
   }
 
@@ -33,7 +33,7 @@ function displayFilterList (recipes) {
     const ingrList = document.createElement('li');
     ingrList.classList.add('tag-ingredients');
     ingrList.classList.add('tags');
-    ingrList.textContent = ingr;
+    ingrList.textContent = ingr[0].toUpperCase()+ingr.substring(1);
 
     ingrTagBox.appendChild(ingrList);
   })
@@ -42,7 +42,7 @@ function displayFilterList (recipes) {
     const appList = document.createElement('li');
     appList.classList.add('tag-appliance');
     appList.classList.add('tags');
-    appList.textContent = app;
+    appList.textContent = app[0].toUpperCase()+app.substring(1);
 
     appTagBox.appendChild(appList);
   })

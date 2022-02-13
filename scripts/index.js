@@ -1,9 +1,9 @@
 import recipeFactory from "./displayRecipes.js";
 import { displayFilterList, filterTags, showTagList } from "./displayFilterList.js";
-import createBoxTags from "./displayTag.js";
-import filterRecipes from "./research.js";
+import { createBoxTags, removeTag } from "./displayTag.js";
+import { filterRecipes, filterRecipeByTags } from "./research.js";
 
-function displayRecipes(array) {
+export default function displayRecipes(array) {
     let recipes = array;
     const recipesContainer = document.getElementById("recipe-list");
 
@@ -18,17 +18,6 @@ function init() {
   displayRecipes(recipes);
   displayFilterList(recipes);
 
-  // Permet d'utiliser un seul addEventListener pour tous les tags
-  [...document.querySelectorAll(".tags")].forEach(function(item) {
-    item.addEventListener("click", () => {
-      var targetClasses = event.target.classList[0];
-      var targetValue = event.target.textContent;
-      var targetClass = targetClasses.split('-');
-      var category = targetClass[1];
-
-      createBoxTags(category, targetValue);
-    })
-  });
 
   let input = document.querySelector('#search-bar');
   input.addEventListener('keyup', () => {
@@ -59,6 +48,30 @@ function init() {
       filterTags(target);
       showTagList(target);
     })
+  });
+
+  // tri les elements par tags
+  let tagsArray = [];
+
+  $(document).on('click','.tags', function()
+  {
+    let targetClasses = event.target.classList[0];
+    let targetValue = event.target.textContent;
+    let targetClass = targetClasses.split('-');
+    let category = targetClass[1];
+
+    tagsArray.push(targetValue.toLowerCase());
+
+    createBoxTags(category, targetValue);
+    filterRecipeByTags(tagsArray);
+  });
+
+  $(document).on('click','.close-btn', function()
+  {
+    let tagValue = event.target.parentNode.parentNode.textContent.toLowerCase();
+    tagsArray = removeTag(tagsArray, tagValue);
+    filterRecipeByTags(tagsArray);
+    event.target.parentNode.parentNode.remove();
   });
 }
 

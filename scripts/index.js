@@ -44,6 +44,7 @@ function init() {
   // tri les tags dans leurs contianers respectifs
   [...document.querySelectorAll(".filter-text")].forEach(function(item) {
     item.addEventListener("keyup", () => {
+      // récupère le contenant de l'input
       var target = event.target.id;
       filterTags(target);
       showTagList(target);

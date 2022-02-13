@@ -1,4 +1,3 @@
-import { filterRecipes, filterRecipeByTags } from "./research.js";
 export {createBoxTags, removeTag};
 
 function createBoxTags(category, content) {

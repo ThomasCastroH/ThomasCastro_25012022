@@ -27,8 +27,7 @@ function filterRecipes (recipes, string) {
         }
     });
 
-    let uniqueArray = [... new Set(filteredArray)];
-    return uniqueArray;
+    return filteredArray;
 }
 
 function filterRecipeByTags (array) {

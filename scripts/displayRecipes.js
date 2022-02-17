@@ -21,7 +21,11 @@ export default function recipeFactory(recipes) {
       cardHeaderTitle.setAttribute('class', 'recipe-name');
       cardHeaderTitle.textContent = name;
 
+      const cardHeaderTimer = document.createElement('div');
+      cardHeaderTimer.setAttribute('class', 'recipe-timer');
+
       const timeLogo = document.createElement('span');
+      timeLogo.setAttribute('class', 'recipe-time-logo');
       timeLogo.innerHTML = '<i class="far fa-clock"></i>';
 
       const cardHeaderTime = document.createElement('span');
@@ -43,8 +47,9 @@ export default function recipeFactory(recipes) {
 
       cardInfo.appendChild(cardInfoHeader);
       cardInfoHeader.appendChild(cardHeaderTitle);
-      cardInfoHeader.appendChild(timeLogo);
-      cardInfoHeader.appendChild(cardHeaderTime);
+      cardInfoHeader.appendChild(cardHeaderTimer);
+      cardHeaderTimer.appendChild(timeLogo);
+      cardHeaderTimer.appendChild(cardHeaderTime);
 
       cardInfo.appendChild(cardInfoDetails);
       cardInfoDetails.appendChild(cardDetailsIngr);
@@ -55,7 +60,11 @@ export default function recipeFactory(recipes) {
         const span = document.createElement('span');
         span.setAttribute('class', 'ingredients');
 
-        if (ingredient.unit) {
+        if (ingredient.unit === "grammes") {
+          span.textContent = ingredient.ingredient + ": " + ingredient.quantity + " " + ingredient.unit.slice(0,2);
+        } else if (ingredient.unit === "cuillères à soupe" || ingredient.unit === "cuillère à soupe") {
+          span.textContent = ingredient.ingredient + ": " + ingredient.quantity + " " + "càs";
+        } else if (ingredient.unit) {
           span.textContent = ingredient.ingredient + ": " + ingredient.quantity + " " + ingredient.unit;
         } else if (ingredient.quantity) {
           span.textContent = ingredient.ingredient + ": " + ingredient.quantity;

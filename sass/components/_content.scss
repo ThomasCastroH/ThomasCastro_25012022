@@ -87,3 +87,13 @@ li {
 .is-hidden {
     display: none;
 }
+
+.error-msg {
+    height: 3rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    border-radius: 5px;
+    margin-top: 1rem;
+}

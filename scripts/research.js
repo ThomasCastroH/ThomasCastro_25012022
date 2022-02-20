@@ -2,6 +2,7 @@ export { filterRecipes, filterRecipeByTags };
 
 function filterRecipes (recipes, string) {
 
+    let errorMsg = document.querySelector('.error-msg');
     let input = string.toLowerCase();
     
     let filteredArray = recipes.filter(function (recipe) {
@@ -26,6 +27,12 @@ function filterRecipes (recipes, string) {
             return recipes
         }
     });
+
+    if (filteredArray.length === 0){
+        errorMsg.style.display = "flex";
+    } else {
+        errorMsg.style.display = "none";
+    };
 
     return filteredArray;
 }

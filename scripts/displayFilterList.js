@@ -59,11 +59,13 @@ function displayFilterList (recipes) {
 
 // fonction filtre des tags
 function filterTags(string) {
+  // recupère l'id et l'element correspondant
   let target = string;
   let input = document.getElementById(target);
 
   switch (target) {
     case "user-ingr":
+      // recupère l'input et le compare aux éléments tag-ingredients
       var filter = input.value.toUpperCase();
       var div = document.getElementById("sugg-ingr");
       var elem = div.getElementsByClassName("tag-ingredients");

@@ -39,8 +39,6 @@ function filterRecipes (recipes, string) {
 
 function filterRecipeByTags (array) {
 
-    console.log(array);
-
     let recipes = document.querySelectorAll('.recipe');
     if (array.length == 0) {
         recipes.forEach(recipe => {
